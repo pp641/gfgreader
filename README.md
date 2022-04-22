@@ -10,3 +10,8 @@ To run the app:
   <li>  1.3) npm start  ( to run the client project)      </li>
 </ul>
 
+
+
+<div>
+   <h3>  <italic>Launching it soon .......  </italic> <h3>
+</div>
