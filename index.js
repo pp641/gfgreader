@@ -11,7 +11,7 @@ app.use(
   })
 );
 
-dotenv.config({path: './env.config'})
+dotenv.config({path: './config.env'})
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
