@@ -1,8 +1,8 @@
 const express = require("express");
-const path = require("path")
+const path = require("path");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const dotenv = require("dotenv")
+const dotenv = require("dotenv");
 const app = express();
 const cors = require("cors");
 app.use(
@@ -11,14 +11,14 @@ app.use(
   })
 );
 
-dotenv.config({path: './config.env'})
+dotenv.config({ path: "./config.env" });
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const router = require("./Routes/routes");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-mongoose.connect(process.env.MONGOURI);
+mongoose.connect("mongodb://localhost:27017/gfg");
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function callback() {
@@ -27,14 +27,12 @@ db.once("open", function callback() {
 
 app.use("/api", router);
 
-if(process.env.NODE_ENV === 'production'){
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
 
-    app.use(express.static('client/build'))
-
-    app.get("*" , (req,res)=>{
-      res.sendFile(path.resolve(__dirname,'client','build','index.html'))
-    })
-
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
 }
 
 app.listen(process.env.PORT || 7074, () => {
