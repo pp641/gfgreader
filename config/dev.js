@@ -1,4 +1,4 @@
 module.exports = {
-    JWT_SECRET : process.env.JWT_SECRET,
-    MONGOURI : process.env.MONGOURI_DEVELOPMENT
+    JWT_SECRET : "abcdefcfojwnsor",
+    MONGOURI : "mongodb://localhost:27017/gfg"
 }

@@ -18,7 +18,7 @@ const loginIntoAccount = async (req, res) => {
         };
         jwt.sign(
           payload,
-          "secret",
+          process.env.JWT_SECRET,
           {
             expiresIn: 31556926,
           },

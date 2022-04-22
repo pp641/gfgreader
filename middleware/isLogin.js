@@ -4,7 +4,7 @@ exports.isLogin = (req, res, next) => {
   console.log("auth" ,authHeader);
   if (authHeader) {
     const token = authHeader.replace("Bearer", "");
-    jwt.verify(token, "secret", (err, user) => {
+    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
       if (err) {
         return res.sendStatus(403);
       }
