@@ -83,11 +83,7 @@ const ProfilePage = () => {
               Read All Posts
             </Typography>
           </AccordionSummary>
-          <AccordionDetails
-            sx={{
-              backgroundColor: "royalBlue",
-            }}
-          >
+          <AccordionDetails>
             <div class="container">
               <div class="card__container">
                 {records.ArticleReducers?.allSavedRecordsUserWise?.map(
