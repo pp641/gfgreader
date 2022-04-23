@@ -9,7 +9,7 @@ export const setCurrentStatus = (data) => async (dispatch) =>
 
 export const createAccount = (data) => async (dispatch) => {
   await axios
-    .post("http://localhost:7074/api/createAccount", data)
+    .post("/api/createAccount", data)
     .then((response) => {
       console.log("respsts", response.status);
       dispatch({
@@ -31,7 +31,7 @@ export const createAccount = (data) => async (dispatch) => {
 export const LoginAccount = (data) => async (dispatch) => {
   // const navigate = useNavigate();
   await axios
-    .post("http://localhost:7074/api/loginAccount", data)
+    .post("/api/loginAccount", data)
     .then((response) => {
       console.log(response.data.payload.user);
       let record = JSON.stringify(response.data.payload.user);
@@ -54,7 +54,7 @@ export const LoginAccount = (data) => async (dispatch) => {
 export const sendLikeStatus = (x1, x2, x3) => async (dispatch) => {
   await axios
     .patch(
-      "http://localhost:7074/api/likeStatus",
+      "/api/likeStatus",
       {
         data: [x1, x2, x3],
       },
@@ -81,7 +81,7 @@ export const sendLikeStatus = (x1, x2, x3) => async (dispatch) => {
 
 export const removeCurrentFavPost = (email, id) => (dispatch) => {
   axios
-    .patch("http://localhost:7074/api/removeCurrentFavPost/", {
+    .patch("/api/removeCurrentFavPost/", {
       email: email,
       id: id,
     })
@@ -101,7 +101,7 @@ export const removeCurrentFavPost = (email, id) => (dispatch) => {
 
 export const currentUserDetails = (data) => async (dispatch) => {
   await axios
-    .post("http://localhost:7074/api/getcurrentUser", { data: data })
+    .post("/api/getcurrentUser", { data: data })
     .then((response) => {
       dispatch({
         type: "GET_CURRENT_USER",

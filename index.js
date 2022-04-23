@@ -11,14 +11,14 @@ app.use(
   })
 );
 
-dotenv.config({ path: "./config.env" });
+dotenv.config({ path: "./.env" });
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const router = require("./Routes/routes");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-mongoose.connect("mongodb://localhost:27017/gfg");
+mongoose.connect(process.env.MONGOURI);
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function callback() {

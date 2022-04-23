@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getAllAuthors = () => async (dispatch) => {
   await axios
-    .get("http://localhost:7074/api/getAllAuthors")
+    .get("/api/getAllAuthors")
     .then((response) => {
       dispatch({
         type: "GET_ALL_AUTHORS",
@@ -19,7 +19,7 @@ export const getAllAuthors = () => async (dispatch) => {
 
 export const getAllSavedRecordsUserWise = (data) => async (dispatch) => {
   await axios
-    .post("http://localhost:7074/api/getAllSavedRecordUserWise", {
+    .post("/api/getAllSavedRecordUserWise", {
       email: data,
     })
     .then(async (response) => {
@@ -75,7 +75,7 @@ export const getSearchQuery = (data) => async (dispatch) =>
 
 export const getAllRecords = async (records) => async (dispatch) => {
   await axios
-    .post("http://localhost:7074/api/getRecordsByFilterOperations", records)
+    .post("/api/getRecordsByFilterOperations", records)
     .then((response) => {
       dispatch({
         type: "GET_ALL_RECORDS",
@@ -132,7 +132,7 @@ export const getAllArticlesByAuthorId =
 export const getCurrentPostHtml = (link) => (dispatch) => {
   console.log("link", link);
   axios
-    .post("http://localhost:7074/api/getCurrentPost", { link: link })
+    .post("/api/getCurrentPost", { link: link })
     .then((response) => {
       console.log(response.data);
       dispatch({

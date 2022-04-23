@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getAllPosts = () => async (dispatch) => {
   await axios
-    .post("http://localhost:7074/api/getPosts", {
+    .post("/api/getPosts", {
       headers: {
         Authorization: localStorage.getItem("token"),
         ContentType: "application/json",
